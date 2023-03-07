@@ -15,8 +15,8 @@
     padding-bottom: 2.1em;
     /* border: 2px dashed white; */
     border-radius: 15px;
-    background-color: rgb(109, 115, 123);
-    box-shadow: 0 0 0 4px rgb(109, 115, 123), 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+    background-color: rgb(74, 89, 95);
+    box-shadow: 0 0 0 4px rgb(74, 89, 95), 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
     transition: .4s ease-in-out;
   }
   
@@ -44,7 +44,7 @@
     width: 14em;
     height: 3em;
     border-radius: 10px;
-    background-color: rgb(89, 135, 163);
+    background-color: rgb(61, 135, 180);
     text-align: center;
   }
   
@@ -55,7 +55,7 @@
     outline: none;
     border: none;
     color: white;
-    background-color: rgb(89, 135, 163);
+    background-color: rgb(61, 135, 180);
     font-weight: bold;
     letter-spacing: 0.1em;
     transition: .4s ease-in-out opacity,.1s ease-in-out active;
