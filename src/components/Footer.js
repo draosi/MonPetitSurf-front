@@ -4,8 +4,8 @@ import Navbar from "react-bootstrap/Navbar";
 
 const Footer = () => {
   return (
-    <>
-      <Navbar bg="primary" variant="dark" fixed="bottom">
+    <div>
+      <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand href="#home">GitHub</Navbar.Brand>
           <Nav className="justify-content-end">
@@ -13,7 +13,7 @@ const Footer = () => {
           </Nav>
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 };
 

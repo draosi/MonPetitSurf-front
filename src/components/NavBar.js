@@ -4,8 +4,8 @@ import Navbar from "react-bootstrap/Navbar";
 
 const NavBar = () => {
   return (
-    <>
-      <Navbar bg="primary" variant="dark" fixed="top">
+    <div>
+      <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand>Mon Petit Surf</Navbar.Brand>
           <Nav className="justify-content-end">
@@ -15,7 +15,7 @@ const NavBar = () => {
           </Nav>
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 };
 
