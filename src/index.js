@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+// import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'
 import MpsRouter from './router/MpsRouter'
 import {MpsController} from './context/MpsContext'
+import './scss/custom.scss'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

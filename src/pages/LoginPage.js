@@ -1,7 +1,11 @@
+import Footer from "../components/Footer"
+import NavBar from "../components/NavBar"
+
 const LoginPage = () => {
     return (
         <div>
-            Hello World
+            <NavBar />
+            <Footer />
         </div>
     )
 }
