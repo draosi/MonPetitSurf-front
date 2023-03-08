@@ -10,7 +10,7 @@ const Register = () => {
         <input className="input" type="text" placeholder="Username"></input>
         <input className="input" type="text" placeholder="Email"></input>
         <input className="input" type="text" placeholder="Password"></input>
-        <input className="input" type="number" placeholder="Level"></input>
+        <input className="input" type="number" min={1} max={4} placeholder="Level"></input>
         <button className="btn">Submit</button>
       </form>
     </div>

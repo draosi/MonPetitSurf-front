@@ -1,8 +1,8 @@
-.login-page {
+.register-page {
   height: 100vh;
 }
 
-.login {
+.register {
   display: flex;
   flex-direction: column;
   justify-content: center;
