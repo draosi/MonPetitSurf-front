@@ -10,11 +10,11 @@ const MpsRouter = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
 
         {/* Protected routes */}
-        <Route path="/home" element={<HomePage />} />
         <Route path="/user/:userId" element={<ProfilePage />} />
         <Route path="/spots/:spotId" element={<SpotDetails />} />
         <Route path="/favorites" element={<FavoritePage />} />

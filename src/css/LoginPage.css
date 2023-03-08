@@ -1,0 +1,21 @@
+.login-page {
+    height: 100vh;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 44vh;
+    margin-top: 22vh;
+    margin-bottom: 22vh;
+}
+
+.nav-bar {
+    height: 6vh;
+}
+
+.footer {
+    height: 6vh;
+    background-color: rgb(89, 135, 163);
+}

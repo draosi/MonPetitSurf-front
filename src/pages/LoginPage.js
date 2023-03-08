@@ -1,17 +1,18 @@
 import Footer from "../components/Footer";
 import Login from "../components/Login";
 import NavBar from "../components/NavBar";
+import '../css/LoginPage.css'
 
 const LoginPage = () => {
   return (
-    <div style={{height: '100vh'}}>
-      <div style={{height: '6vh'}}>
+    <div className="login-page">
+      <div className="nav-bar">
         <NavBar />
       </div>
-      <div style={{height: '88vh', marginTop: '22vh', marginBottom: '22vh', height: '44vh', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+      <div className="login">
         <Login />
       </div>
-      <div style={{height: '6vh', backgroundColor: 'rgb(89, 135, 163)'}}>
+      <div className="footer">
         <Footer />
       </div>
     </div>

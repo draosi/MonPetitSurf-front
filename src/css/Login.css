@@ -56,16 +56,16 @@
     border: none;
     color: white;
     background-color: rgb(61, 135, 180);
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    transition: .4s ease-in-out opacity,.1s ease-in-out active;
+    /* font-weight: bold; */
+    letter-spacing: 0.3em;
+    /* transition: .4s ease-in-out opacity,.1s ease-in-out active; */
     padding: 1em;
     /* box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.5); */
   }
   
-  .form .btn:hover {
+  /* .form .btn:hover {
     opacity: 0.8;
-  }
+  } */
   
   .form .btn:active {
     transform: translateX(0.1em) translateY(0.1em);
