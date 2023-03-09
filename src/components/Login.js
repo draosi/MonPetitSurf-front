@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../logic/UserFunctions";
-import '../css/Login.css'
+import "../css/Login.css";
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,19 +20,33 @@ const Login = () => {
 
     login(user).then((res) => {
       if (res) {
-        navigate("/home");
+        navigate("/search");
       } else {
         alert("Invalid password or email, please try again");
       }
     });
+
+    axios.post()
   };
 
   return (
     <div className="div">
-      <form className="form">
+      <form className="form" noValidate onSubmit={testLogin}>
         <p className="heading">LOGIN</p>
-        <input className="input" type="text" placeholder="Email"></input>
-        <input className="input" type="text" placeholder="Password"></input>
+        <input
+          className="input"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+        />
+        <input
+          className="input"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+        />
         <button className="btn">Submit</button>
       </form>
     </div>

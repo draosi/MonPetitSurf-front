@@ -15,6 +15,7 @@ const MpsRouter = () => {
         <Route path="/register" element={<RegisterPage />} />
 
         {/* Protected routes */}
+        <Route path="/search" />
         <Route path="/user/:userId" element={<ProfilePage />} />
         <Route path="/spots/:spotId" element={<SpotDetails />} />
         <Route path="/favorites" element={<FavoritePage />} />

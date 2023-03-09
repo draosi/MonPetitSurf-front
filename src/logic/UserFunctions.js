@@ -15,7 +15,7 @@ export const register = (abc) => {
 
 export const login = (user) => {
   return axios
-    .post("http://localhost:8000/auth", {
+    .post("http://localhost:8000/auth/login", {
       email: user.email,
       password: user.password,
     })
