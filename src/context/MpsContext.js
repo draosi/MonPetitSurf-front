@@ -31,7 +31,7 @@ export const MpsController = ({ children }) => {
 
   useEffect(() => {
     fetchLocationData();
-  }, []);
+  }, [query]);
 
   const fetchSurfData = async () => {
     try {
