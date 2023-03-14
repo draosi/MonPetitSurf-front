@@ -5,6 +5,8 @@ import HomePage from "../pages/HomePage";
 import SpotDetails from "../pages/SpotDetails";
 import ProfilePage from "../pages/ProfilePage"
 import FavoritePage from "../pages/FavoritePage"
+import { Search } from "@mui/icons-material";
+import SearchPage from "../pages/SearchPage";
 
 const MpsRouter = () => {
   return (
@@ -15,7 +17,7 @@ const MpsRouter = () => {
         <Route path="/register" element={<RegisterPage />} />
 
         {/* Protected routes */}
-        <Route path="/search" />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/user/:userId" element={<ProfilePage />} />
         <Route path="/spots/:spotId" element={<SpotDetails />} />
         <Route path="/favorites" element={<FavoritePage />} />
