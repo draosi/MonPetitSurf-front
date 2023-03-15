@@ -12,7 +12,7 @@ export const MpsController = ({ children }) => {
   const [spots, setSpots] = useState([]);
   const [comments, setComments] = useState([]);
 
-  const [query, setQuery] = useState("Lacanau-Ocean");
+  const [query, setQuery] = useState("Lacanau-Océan");
   const [input, setInput] = useState("");
 
   const [loading, setLoading] = useState(false);
