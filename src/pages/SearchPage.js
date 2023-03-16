@@ -12,6 +12,7 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import SurfMap from "../components/SurfMap";
 import "../css/SearchPage.css";
+import RecommendedSpot from "../components/RecommendedSpot";
 
 const SearchPage = () => {
   const { value5, value7 } = useContext(MpsContext);
@@ -23,6 +24,7 @@ const SearchPage = () => {
   };
 
   const thisSpot = spots.filter((element) => element.spot_name === query)
+  console.log(thisSpot)
 
   return (
     <div className="search-page">
@@ -64,20 +66,7 @@ const SearchPage = () => {
         </div>
         <div style={{height: '70%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
             <div className="card shadow">
-                <h4>Where to surf today ?</h4>
-                <p>Spot #1</p>
-                <p>Spot #2</p>
-                <p>Spot #3</p>
-                <p>Spot #4</p>
-                <p>Spot #5</p>
-                <p>Spot #6</p>
-                <p>Spot #7</p>
-                <p>Spot #8</p>
-                <p>Spot #9</p>
-                <p>Spot #10</p>
-                <p>Spot #11</p>
-                <p>Spot #12</p>
-                <p>Spot #13</p>
+                <RecommendedSpot />
             </div>
         </div>
       </div>
