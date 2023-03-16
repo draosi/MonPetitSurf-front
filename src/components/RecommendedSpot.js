@@ -16,7 +16,7 @@ const RecommendedSpot = () => {
 
   const [userLoading, setUserLoading] = useState(false);
   const [surfLoading, setSurfLoading] = useState(false);
-  const [loading, setloading] = useState(false)
+  const [loading, setloading] = useState(false);
 
   const token = localStorage.usertoken;
   const decoded = token && jwt_decode(token);
@@ -65,20 +65,28 @@ const RecommendedSpot = () => {
   const lvl = mySurf.map((e, id) => [e, spots[id].spot_name]);
   const level = lvl.map((e) => [average(e[0]), e[1]]);
 
-  console.log(level)
+  console.log(level);
 
   // Storing each spot in its appropriate array
-  let levelOne = []
-  let levelTwo = []
-  let levelThree = []
-  let levelFour = []
+  let levelOne = [];
+  let levelTwo = [];
+  let levelThree = [];
+  let levelFour = [];
 
   level.map((e) => {
-    if (e[0] < 1) {levelOne.push([e[0], e[1]])}
-    if (e[0] < 1.5 && e[0] > 0.8) {levelTwo.push([e[0], e[1]])}
-    if (e[0] < 1.8 && e[0] > 1.2) {levelThree.push([e[0], e[1]])}
-    if (e[0] > 1.5) {levelFour.push([e[0], e[1]])}
-  })
+    if (e[0] < 1) {
+      levelOne.push([e[0], e[1]]);
+    }
+    if (e[0] < 1.5 && e[0] > 0.8) {
+      levelTwo.push([e[0], e[1]]);
+    }
+    if (e[0] < 1.8 && e[0] > 1.2) {
+      levelThree.push([e[0], e[1]]);
+    }
+    if (e[0] > 1.5) {
+      levelFour.push([e[0], e[1]]);
+    }
+  });
 
   // Fetch the data from the connected user and get its level
   const fetchMyUser = async () => {
@@ -96,13 +104,49 @@ const RecommendedSpot = () => {
   useEffect(() => {
     fetchWhereToSurf();
     fetchMyUser();
-    setloading(true)
+    setloading(true);
   }, [location]);
 
   return (
     <div>
       <h4>Hello world</h4>
       <div className="spots-card shadow">
+        {myUser.level == 1 &&
+          levelOne.map((e) => {
+            return(
+              <div>
+                {e[1]} - Wave size average : {e[0]}
+              </div>
+            )
+          })
+        }
+        {myUser.level == 2 &&
+          levelTwo.map((e) => {
+            return(
+              <div>
+                {e[1]} - Wave size average : {e[0]}
+              </div>
+            )
+          })
+        }
+        {myUser.level == 3 &&
+          levelThree.map((e) => {
+            return(
+              <div>
+                {e[1]} - Wave size average : {e[0]}
+              </div>
+            )
+          })
+        }
+        {myUser.level == 4 &&
+          levelFour.map((e) => {
+            return(
+              <div>
+                {e[1]} - Wave size average : {e[0]}
+              </div>
+            )
+          })
+        }
       </div>
     </div>
   );
