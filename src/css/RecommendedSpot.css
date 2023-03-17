@@ -12,6 +12,7 @@
   background: white;
   border-radius: 10px;
   transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: scroll;
 }
 
 .shadow {
@@ -28,6 +29,24 @@ h4 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     margin: 1rem 0rem;
     padding: 0rem 0.5rem;
+}
+
+.city {
+  width: 60%;
+}
+
+.wave-size {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 35%;
+}
+
+.image-wave-size {
+  width: 40%;
+  margin: 0% 5%;
 }

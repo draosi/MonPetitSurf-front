@@ -8,10 +8,10 @@ const SurfMap = () => {
 
   return (
     <div
-      style={{ textAlign: "center", margin: "25px 0px" }}
+      style={{ textAlign: "center", height: '100%'}}
     >
       <Map
-        height={300}
+        // height={300}
         defaultCenter={[46.16, -1.15]}
         defaultZoom={6}
       >

@@ -1,9 +1,10 @@
-import WavesIcon from '@mui/icons-material/Waves';
+import WavesIcon from "@mui/icons-material/Waves";
 import { useContext, useState, useEffect } from "react";
 import { MpsContext } from "../context/MpsContext";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import "../css/RecommendedSpot.css";
+import WaveSize from "../images/wave_size.png";
 import { useLocation } from "react-router-dom";
 
 const RecommendedSpot = () => {
@@ -113,44 +114,56 @@ const RecommendedSpot = () => {
       <div className="spots-card shadow">
         {myUser.level == 1 &&
           levelOne.map((e) => {
-            return(
-              <table>
-                <td>{e[1]}</td>
-                <td> <WavesIcon color='primary'/> : {e[0]} m</td>
-              </table>
-            )
-          })
-        }
+            return (
+              <div className="table">
+                <div>{e[1]}</div>
+                <div>
+                  {" "}
+                  <WavesIcon color="primary" /> : {e[0]} m
+                </div>
+              </div>
+            );
+          })}
         {myUser.level == 2 &&
           levelTwo.map((e) => {
-            return(
-              <table className="table">
-                <td>{e[1]}</td>
-                <td> <WavesIcon color='primary'/> : {e[0]} m</td>
-              </table>
-            )
-          })
-        }
+            return (
+              <div className="table">
+                <div className="city">{e[1]}</div>
+                <div className="wave-size">
+                  <img
+                    src={WaveSize}
+                    alt="wave_size"
+                    className='image-wave-size'
+                  />
+                  <p className='image-wave-size'>{e[0]} m</p>
+                </div>
+              </div>
+            );
+          })}
         {myUser.level == 3 &&
           levelThree.map((e) => {
-            return(
-              <table>
-                <td>{e[1]}</td>
-                <td> <WavesIcon color='primary'/> : {e[0]} m</td>
-              </table>
-            )
-          })
-        }
+            return (
+              <div className="table">
+                <div>{e[1]}</div>
+                <div>
+                  {" "}
+                  <WavesIcon color="primary" /> : {e[0]} m
+                </div>
+              </div>
+            );
+          })}
         {myUser.level == 4 &&
           levelFour.map((e) => {
-            return(
-              <table>
-                <td>{e[1]}</td>
-                <td> <WavesIcon color='primary'/> : {e[0]} m</td>
-              </table>
-            )
-          })
-        }
+            return (
+              <div className="table">
+                <div>{e[1]}</div>
+                <div>
+                  {" "}
+                  <WavesIcon color="primary" /> : {e[0]} m
+                </div>
+              </div>
+            );
+          })}
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ export const MpsContext = createContext();
 export const MpsController = ({ children }) => {
   const [surfData, setSurfData] = useState([]);
   const [windData, setWindData] = useState([]);
+  const [meteoData, setMeteoData] = useState([])
   const [locationData, setLocationData] = useState([]);
 
   const [users, setUsers] = useState([]);
@@ -57,9 +58,21 @@ export const MpsController = ({ children }) => {
     }
   };
 
+  const fetchMeteoData = async () => {
+    try {
+      const callTheData = await axios.get(`https://api.open-meteo.com/v1/meteofrance?latitude=${locationData.latitude}&longitude=${locationData.longitude}&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,precipitation_hours&timezone=auto`)
+      setMeteoData(callTheData.data.daily)
+      setLoading(true)
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
+
   useEffect(() => {
     locationData.latitude && locationData.longitude && fetchSurfData();
     locationData.latitude && locationData.longitude && fetchWindData();
+    locationData.latitude && locationData.longitude && fetchMeteoData();
   }, [locationData.latitude, locationData.longitude]);
 
   const fetchUsers = async () => {
@@ -109,6 +122,7 @@ export const MpsController = ({ children }) => {
         value6: [comments, setComments],
         value7: [query, setQuery],
         value8: [input, setInput],
+        value9: [meteoData, setMeteoData],
       }}
     >
       {loading && children}

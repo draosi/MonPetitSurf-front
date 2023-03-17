@@ -71,7 +71,7 @@ const SearchPage = () => {
               </Link>
             )}
           </div>
-          <div>
+          <div style={{height: '70%'}}>
             <SurfMap />
           </div>
         </div>
