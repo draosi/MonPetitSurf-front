@@ -12,9 +12,8 @@ const SurfMap = () => {
     >
       <Map
         height={300}
-        width={700}
-        defaultCenter={[locationData.latitude, locationData.longitude]}
-        defaultZoom={11}
+        defaultCenter={[46.16, -1.15]}
+        defaultZoom={6}
       >
         <Marker
           width={50}

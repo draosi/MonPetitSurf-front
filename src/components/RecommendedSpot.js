@@ -1,4 +1,4 @@
-import jwtDecode from "jwt-decode";
+import WavesIcon from '@mui/icons-material/Waves';
 import { useContext, useState, useEffect } from "react";
 import { MpsContext } from "../context/MpsContext";
 import jwt_decode from "jwt-decode";
@@ -108,42 +108,46 @@ const RecommendedSpot = () => {
   }, [location]);
 
   return (
-    <div>
-      <h4>Hello world</h4>
+    <div className="recommended-spot">
+      <h4>Where to surf today ?</h4>
       <div className="spots-card shadow">
         {myUser.level == 1 &&
           levelOne.map((e) => {
             return(
-              <div>
-                {e[1]} - Wave size average : {e[0]}
-              </div>
+              <table>
+                <td>{e[1]}</td>
+                <td> <WavesIcon color='primary'/> : {e[0]} m</td>
+              </table>
             )
           })
         }
         {myUser.level == 2 &&
           levelTwo.map((e) => {
             return(
-              <div>
-                {e[1]} - Wave size average : {e[0]}
-              </div>
+              <table className="table">
+                <td>{e[1]}</td>
+                <td> <WavesIcon color='primary'/> : {e[0]} m</td>
+              </table>
             )
           })
         }
         {myUser.level == 3 &&
           levelThree.map((e) => {
             return(
-              <div>
-                {e[1]} - Wave size average : {e[0]}
-              </div>
+              <table>
+                <td>{e[1]}</td>
+                <td> <WavesIcon color='primary'/> : {e[0]} m</td>
+              </table>
             )
           })
         }
         {myUser.level == 4 &&
           levelFour.map((e) => {
             return(
-              <div>
-                {e[1]} - Wave size average : {e[0]}
-              </div>
+              <table>
+                <td>{e[1]}</td>
+                <td> <WavesIcon color='primary'/> : {e[0]} m</td>
+              </table>
             )
           })
         }
