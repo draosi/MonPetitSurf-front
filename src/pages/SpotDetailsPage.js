@@ -4,9 +4,9 @@ import SpotInfos from "../components/SpotInfos";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Meteo from '../components/Meteo'
-import "../css/SpotDetails.css";
+import "../css/SpotDetailsPage.css"
 
-const Spotdetails = () => {
+const SpotdetailsPage = () => {
   return (
     <div className="spot-details">
       <div className="nav-bar">
@@ -36,4 +36,4 @@ const Spotdetails = () => {
   );
 };
 
-export default Spotdetails;
+export default SpotdetailsPage;
