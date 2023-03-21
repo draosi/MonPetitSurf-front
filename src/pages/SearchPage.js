@@ -85,6 +85,7 @@ const SearchPage = () => {
             width: "30%",
             margin: "0% 2.5%",
             padding: "3% 0%",
+            overflow: 'scroll'
           }}
         >
           <RecommendedSpot />

@@ -1,18 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 // import './index.css';
-import reportWebVitals from './reportWebVitals';
-import {BrowserRouter} from 'react-router-dom'
-import MpsRouter from './router/MpsRouter'
-import {MpsController} from './context/MpsContext'
-import './scss/custom.scss'
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import MpsRouter from "./router/MpsRouter";
+import { MpsController } from "./context/MpsContext";
+import "./scss/custom.scss";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <MpsController>
       <BrowserRouter>
-        <MpsRouter/>
+        <MpsRouter />
       </BrowserRouter>
     </MpsController>
   </React.StrictMode>

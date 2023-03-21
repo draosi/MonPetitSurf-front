@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../logic/UserFunctions";
 import "../css/Login.css";
@@ -26,7 +26,7 @@ const Login = () => {
       }
     });
 
-    axios.post()
+    // axios.post()
   };
 
   return (
