@@ -14,6 +14,8 @@ const Meteo = () => {
     console.log(meteoData)
     
     return(
+        <>
+        { value9 ? (
         <div className='meteo-card shadow'>
             <div className='line'>
                 <img src={Sunrise} alt='sunrise' className='img-meteo'/>
@@ -36,6 +38,12 @@ const Meteo = () => {
                 <p>{meteoData.precipitation_sum[0]} mm</p>
             </div>
         </div>
+        ) : (
+            <div>
+                Loading
+            </div>
+        )}
+        </>
 )
 }
 
