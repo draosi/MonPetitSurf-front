@@ -27,7 +27,7 @@ const NavBar = () => {
             {decoded && (
               <>
                 <Nav.Link href="/search">Home</Nav.Link>
-                <Nav.Link href="/profile">Profile</Nav.Link>
+                <Nav.Link href={`/user/${decoded.user._id}`}>Profile</Nav.Link>
                 <Nav.Link href="/favorites">Favorites</Nav.Link>
                 <Nav.Link href="" onClick={logOut}>
                   Log out
