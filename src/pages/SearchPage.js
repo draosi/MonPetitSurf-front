@@ -23,7 +23,7 @@ const SearchPage = () => {
     setQuery(event.target.value);
   };
 
-  const thisSpot = spots.filter((element) => element.spot_name === query);
+  const thisSpot = spots.find((element) => element.spot_name === query);
   console.log(thisSpot);
 
   return (
@@ -66,7 +66,7 @@ const SearchPage = () => {
               </Box>
             </div>
             {thisSpot && (
-              <Link to={`/spots/${thisSpot[0]._id}`}>
+              <Link to={`/spots/${thisSpot._id}`}>
                 <button className="details-button">Details</button>
               </Link>
             )}
