@@ -1,0 +1,73 @@
+.div-edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-edit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-top: 3em;
+  padding-left: 2.8em;
+  padding-right: 2.8em;
+  padding-bottom: 2.1em;
+  /* border: 2px dashed white; */
+  border-radius: 15px;
+  background-color: rgb(74, 89, 95);
+  box-shadow: 0 0 0 4px rgb(74, 89, 95), 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+  transition: 0.4s ease-in-out;
+}
+
+::placeholder {
+  color: white;
+  text-align: center;
+}
+
+.form-edit .heading-edit {
+  color: white;
+  background-color: transparent;
+  letter-spacing: 0.5em;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 3em;
+  text-shadow: inset -1px -1px 1px white;
+}
+
+.form-edit .input-edit {
+  outline: none;
+  padding: 0.5em;
+  border: 1px solid white;
+  color: white;
+  width: 14em;
+  height: 3em;
+  border-radius: 10px;
+  background-color: rgb(2, 88, 176);
+  /* text-align: center; */
+}
+
+.form-edit .btn-edit {
+  align-self: center;
+  margin-top: 2em;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: rgb(2, 88, 176);
+  /* font-weight: bold; */
+  letter-spacing: 0.3em;
+  /* transition: .4s ease-in-out opacity,.1s ease-in-out active; */
+  padding: 1em;
+  /* box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.5); */
+}
+
+/* .form .btn:hover {
+    opacity: 0.8;
+  } */
+
+.form-edit .btn-edit:active {
+  transform: translateX(0.1em) translateY(0.1em);
+  box-shadow: none;
+}

@@ -1,0 +1,12 @@
+.edit-user-page {
+  height: 100vh;
+}
+
+.edit-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 44vh;
+  margin-top: 22vh;
+  margin-bottom: 22vh;
+}

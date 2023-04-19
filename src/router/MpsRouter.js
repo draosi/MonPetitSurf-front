@@ -7,6 +7,8 @@ import ProfilePage from "../pages/ProfilePage"
 import FavoritePage from "../pages/FavoritePage"
 import { Search } from "@mui/icons-material";
 import SearchPage from "../pages/SearchPage";
+import EditUserPage from "../pages/EditUserPage";
+import EditLevelPage from "../pages/EditLevelPage";
 
 const MpsRouter = () => {
   return (
@@ -21,6 +23,8 @@ const MpsRouter = () => {
         <Route path="/user/:userId" element={<ProfilePage />} />
         <Route path="/spots/:spotId" element={<SpotDetailsPage />} />
         <Route path="/favorites" element={<FavoritePage />} />
+        <Route path="/user/edit-info/:userId" element={<EditUserPage />} />
+        <Route path="/user/edit-level/:userId" element={<EditLevelPage />} />
       </Routes>
     </div>
   );

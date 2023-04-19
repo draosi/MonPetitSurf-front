@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const ProfilePage = () => {
   const initialValue = {
@@ -53,7 +54,9 @@ const ProfilePage = () => {
             </div>
           </div>
           <div className="user-basic-info-button">
-            <button className="button-edit">Edit</button>
+            <Link to={`/user/edit-info/${myUser._id}`}>
+              <button className="button-edit">Edit</button>
+            </Link>
           </div>
         </div>
         <div className="level">
@@ -62,7 +65,9 @@ const ProfilePage = () => {
             <p>{myUser.level}</p>
           </div>
           <div className="edit-level-button">
-            <button className="button-edit-level">Edit</button>
+            <Link to={`/user/edit-level/${myUser._id}`}>
+              <button className="button-edit-level">Edit</button>
+            </Link>
           </div>
         </div>
       </div>
