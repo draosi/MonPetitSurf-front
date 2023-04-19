@@ -45,7 +45,7 @@
   height: 3em;
   border-radius: 10px;
   background-color: rgb(2, 88, 176);
-  /* text-align: center; */
+  text-align: center;
 }
 
 .form-edit .btn-edit {

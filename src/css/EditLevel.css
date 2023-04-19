@@ -1,0 +1,65 @@
+.div-edit-level {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+  margin-left: 15%;
+  margin-right: 15%;
+  border-radius: 15px;
+  background-color: rgb(74, 89, 95);
+  box-shadow: 0 0 0 4px rgb(74, 89, 95), 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+  transition: 0.4s ease-in-out;
+  color: white;
+}
+
+.levels-explained {
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 2;
+  padding: 0% 5%;
+  margin: 2.5% 0%;
+}
+
+.div-edit-level-button{
+    display: flex;
+    flex-direction: row;
+    margin: 2.5% 0%;
+}
+
+.edit-level-button {
+  align-self: center;
+  /* margin-top: 2em; */
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: rgb(2, 88, 176);
+  /* font-weight: bold; */
+  letter-spacing: 0.3em;
+  /* transition: .4s ease-in-out opacity,.1s ease-in-out active; */
+  padding: 1em;
+  /* box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.5); */
+}
+
+.edit-level-button:active {
+  transform: translateX(0.1em) translateY(0.1em);
+  box-shadow: none;
+}
+
+.submit-level-button{
+    align-self: center;
+    /* margin-top: 2em; */
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: rgb(2, 88, 176);
+    /* font-weight: bold; */
+    letter-spacing: 0.3em;
+    /* transition: .4s ease-in-out opacity,.1s ease-in-out active; */
+    padding: 1em;
+    /* box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.5); */
+    margin: 2.5% 0%;
+}

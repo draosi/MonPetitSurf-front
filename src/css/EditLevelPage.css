@@ -1,0 +1,12 @@
+.edit-level-page {
+  height: 100vh;
+}
+
+.edit-level-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 64vh;
+  margin-top: 12vh;
+  margin-bottom: 12vh;
+}
