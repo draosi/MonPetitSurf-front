@@ -44,7 +44,6 @@ const SpotdetailsPage = () => {
         <div className="graphique">
           <SpotInfos />
         </div>
-        <div></div>
       </div>
       <div className="footer">
         <Footer />

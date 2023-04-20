@@ -8,6 +8,9 @@ import {
   YAxis,
   CartesianGrid,
   ResponsiveContainer,
+  Area,
+  AreaChart,
+  Tooltip,
 } from "recharts";
 
 const SpotInfos = () => {
@@ -24,7 +27,7 @@ const SpotInfos = () => {
 
   const waveHeight = waveHeightArray.filter((el, i) => i % 3 === 0 && i < 24);
 
-  const height = [
+  const heightOfWaves = [
     {
       name: "00h00",
       h: 0.82,
@@ -62,20 +65,82 @@ const SpotInfos = () => {
   console.log(waveHeight);
   console.log(value2);
 
+  // const CustomTooltip = ({ active, payload, label }) => {
+  //   console.log(active)
+  //   console.log(payload)
+  //   console.log(label)
+  //   if (active && payload && payload.length) {
+  //     return (
+  //       <div className="tooltip">
+  //         <h4>{label}</h4>
+  //       </div>
+  //     );
+  //   }
+  //   return null;
+  // };
+
   return (
+    <div>
     <div className="card-surf-infos shadow">
       <div className="graph">
         <div className="height-graph">
-          <ResponsiveContainer width='30%' height='100%'>
-            <LineChart data={height}>
-              <Line type="monotone" dataKey="h" stroke="#8884d8" />
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-            </LineChart>
+          <ResponsiveContainer width={"100%"} height={400}>
+            <AreaChart data={heightOfWaves}>
+              <Area dataKey="h" stroke="#0258B0" />
+              <XAxis dataKey="name" axisLine={false} tickLine={false} />
+              <YAxis
+                dataKey="h"
+                tickFormatter={(number) => `${number}m`}
+                axisLine={false}
+                tickLine={false}
+              />
+              <Tooltip />
+              <CartesianGrid opacity={0.8} vertical={false} />
+            </AreaChart>
           </ResponsiveContainer>
         </div>
       </div>
+    </div>
+    <div className="card-surf-infos shadow">
+      <div className="graph">
+        <div className="height-graph">
+          <ResponsiveContainer width={"100%"} height={400}>
+            <AreaChart data={heightOfWaves}>
+              <Area dataKey="h" stroke="#0258B0" />
+              <XAxis dataKey="name" axisLine={false} tickLine={false} />
+              <YAxis
+                dataKey="h"
+                tickFormatter={(number) => `${number}m`}
+                axisLine={false}
+                tickLine={false}
+              />
+              <Tooltip />
+              <CartesianGrid opacity={0.8} vertical={false} />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+    </div>
+    <div className="card-surf-infos shadow">
+      <div className="graph">
+        <div className="height-graph">
+          <ResponsiveContainer width={"100%"} height={400}>
+            <AreaChart data={heightOfWaves}>
+              <Area dataKey="h" stroke="#0258B0" />
+              <XAxis dataKey="name" axisLine={false} tickLine={false} />
+              <YAxis
+                dataKey="h"
+                tickFormatter={(number) => `${number}m`}
+                axisLine={false}
+                tickLine={false}
+              />
+              <Tooltip />
+              <CartesianGrid opacity={0.8} vertical={false} />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+    </div>
     </div>
   );
 };
