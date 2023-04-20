@@ -19,128 +19,126 @@ const SpotInfos = () => {
   const [windData, setWindData] = value3;
   const [comments, setComments] = value6;
 
-  console.log(value2);
-  console.log(value3);
+  const waveHeight = value2[0].wave_height.filter((el, i) => i%3 === 0 && i<24)
+  const wavePeriod = value2[0].wave_period.filter((el, i) => i%3 === 0 && i<24)
+  const windSpeed = value3[0].windspeed_10m.filter((el, i) => i%3 === 0 && i<24)
 
-  const waveHeightArray = value2[0].wave_height;
-  const wavePerriodArray = value2[0].wave_period;
-
-  const waveHeight = waveHeightArray.filter((el, i) => i % 3 === 0 && i < 24);
-
-  const heightOfWaves = [
+  const surfingInfos = [
     {
-      name: "00h00",
-      h: 0.82,
+      whatTime: "00h",
+      wave_size: waveHeight[0],
+      wave_period: wavePeriod[0],
+      wind_speed: windSpeed[0],
     },
     {
-      name: "03h00",
-      h: 0.8,
+      whatTime: "03h",
+      wave_size: waveHeight[1],
+      wave_period: wavePeriod[1],
+      wind_speed: windSpeed[1],
     },
     {
-      name: "06h00",
-      h: 0.84,
+      whatTime: "06h",
+      wave_size: waveHeight[2],
+      wave_period: wavePeriod[2],
+      wind_speed: windSpeed[2],
     },
     {
-      name: "09h00",
-      h: 0.94,
+      whatTime: "09h",
+      wave_size: waveHeight[3],
+      wave_period: wavePeriod[3],
+      wind_speed: windSpeed[3],
     },
     {
-      name: "12h00",
-      h: 1.04,
+      whatTime: "12h",
+      wave_size: waveHeight[4],
+      wave_period: wavePeriod[4],
+      wind_speed: windSpeed[4],
     },
     {
-      name: "15h00",
-      h: 1.16,
+      whatTime: "15h",
+      wave_size: waveHeight[5],
+      wave_period: wavePeriod[5],
+      wind_speed: windSpeed[5],
     },
     {
-      name: "18h00",
-      h: 1.38,
+      whatTime: "18h",
+      wave_size: waveHeight[6],
+      wave_period: wavePeriod[6],
+      wind_speed: windSpeed[6],
     },
     {
-      name: "21h00",
-      h: 1.54,
+      name: "21h",
+      wave_size: waveHeight[7],
+      wave_period: wavePeriod[7],
+      wind_speed: windSpeed[7],
     },
   ];
 
-  console.log(waveHeight);
-  console.log(value2);
-
-  // const CustomTooltip = ({ active, payload, label }) => {
-  //   console.log(active)
-  //   console.log(payload)
-  //   console.log(label)
-  //   if (active && payload && payload.length) {
-  //     return (
-  //       <div className="tooltip">
-  //         <h4>{label}</h4>
-  //       </div>
-  //     );
-  //   }
-  //   return null;
-  // };
-
   return (
     <div>
-    <div className="card-surf-infos shadow">
-      <div className="graph">
-        <div className="height-graph">
-          <ResponsiveContainer width={"100%"} height={400}>
-            <AreaChart data={heightOfWaves}>
-              <Area dataKey="h" stroke="#0258B0" />
-              <XAxis dataKey="name" axisLine={false} tickLine={false} />
-              <YAxis
-                dataKey="h"
-                tickFormatter={(number) => `${number}m`}
-                axisLine={false}
-                tickLine={false}
-              />
-              <Tooltip />
-              <CartesianGrid opacity={0.8} vertical={false} />
-            </AreaChart>
-          </ResponsiveContainer>
+      <div className="card-surf-infos shadow">
+        <div className="graph">
+          <div className="height-graph">
+          <h4 style={{textAlign: 'center'}}>Wave size</h4>
+            <ResponsiveContainer width={"100%"} height={400}>
+              <AreaChart data={surfingInfos}>
+                <Area dataKey="wave_size" stroke="#0258B0" />
+                <XAxis dataKey="whatTime" axisLine={false} tickLine={false} />
+                <YAxis
+                  dataKey="wave_size"
+                  tickFormatter={(number) => `${number}m`}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <Tooltip />
+                <CartesianGrid opacity={0.8} vertical={false} />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="card-surf-infos shadow">
-      <div className="graph">
-        <div className="height-graph">
-          <ResponsiveContainer width={"100%"} height={400}>
-            <AreaChart data={heightOfWaves}>
-              <Area dataKey="h" stroke="#0258B0" />
-              <XAxis dataKey="name" axisLine={false} tickLine={false} />
-              <YAxis
-                dataKey="h"
-                tickFormatter={(number) => `${number}m`}
-                axisLine={false}
-                tickLine={false}
-              />
-              <Tooltip />
-              <CartesianGrid opacity={0.8} vertical={false} />
-            </AreaChart>
-          </ResponsiveContainer>
+      <div className="card-surf-infos shadow">
+        <div className="graph">
+          <div className="height-graph">
+          <h4 style={{textAlign: 'center'}}>Wave period</h4>
+            <ResponsiveContainer width={"100%"} height={400}>
+              <AreaChart data={surfingInfos}>
+                <Area dataKey="wave_period" stroke="#0258B0" />
+                <XAxis dataKey="whatTime" axisLine={false} tickLine={false} />
+                <YAxis
+                  dataKey="wave_period"
+                  tickFormatter={(number) => `${number}s`}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <Tooltip />
+                <CartesianGrid opacity={0.8} vertical={false} />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="card-surf-infos shadow">
-      <div className="graph">
-        <div className="height-graph">
-          <ResponsiveContainer width={"100%"} height={400}>
-            <AreaChart data={heightOfWaves}>
-              <Area dataKey="h" stroke="#0258B0" />
-              <XAxis dataKey="name" axisLine={false} tickLine={false} />
-              <YAxis
-                dataKey="h"
-                tickFormatter={(number) => `${number}m`}
-                axisLine={false}
-                tickLine={false}
-              />
-              <Tooltip />
-              <CartesianGrid opacity={0.8} vertical={false} />
-            </AreaChart>
-          </ResponsiveContainer>
+      <div className="card-surf-infos shadow">
+        <div className="graph">
+          <div className="height-graph">
+          <h4 style={{textAlign: 'center'}}>Wind speed</h4>
+            <ResponsiveContainer width={"100%"} height={400}>
+              <AreaChart data={surfingInfos}>
+                <Area dataKey="wind_speed" stroke="#0258B0" />
+                <XAxis dataKey="whatTime" axisLine={false} tickLine={false} />
+                <YAxis
+                  dataKey="wind_speed"
+                  tickFormatter={(number) => `${number}km/h`}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <Tooltip />
+                <CartesianGrid opacity={0.8} vertical={false} />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };
