@@ -116,10 +116,14 @@ const RecommendedSpot = () => {
           levelOne.map((e) => {
             return (
               <div className="table">
-                <div>{e[1]}</div>
-                <div>
-                  {" "}
-                  <WavesIcon color="primary" /> : {e[0]} m
+                <div className="city">{e[1]}</div>
+                <div className="wave-size">
+                  <img
+                    src={WaveSize}
+                    alt="wave_size"
+                    className="image-wave-size"
+                  />
+                  <p className="image-wave-size">{e[0]} m</p>
                 </div>
               </div>
             );
@@ -133,9 +137,9 @@ const RecommendedSpot = () => {
                   <img
                     src={WaveSize}
                     alt="wave_size"
-                    className='image-wave-size'
+                    className="image-wave-size"
                   />
-                  <p className='image-wave-size'>{e[0]} m</p>
+                  <p className="image-wave-size">{e[0]} m</p>
                 </div>
               </div>
             );
@@ -144,10 +148,14 @@ const RecommendedSpot = () => {
           levelThree.map((e) => {
             return (
               <div className="table">
-                <div>{e[1]}</div>
-                <div>
-                  {" "}
-                  <WavesIcon color="primary" /> : {e[0]} m
+                <div className="city">{e[1]}</div>
+                <div className="wave-size">
+                  <img
+                    src={WaveSize}
+                    alt="wave_size"
+                    className="image-wave-size"
+                  />
+                  <p className="image-wave-size">{e[0]} m</p>
                 </div>
               </div>
             );
@@ -156,10 +164,14 @@ const RecommendedSpot = () => {
           levelFour.map((e) => {
             return (
               <div className="table">
-                <div>{e[1]}</div>
-                <div>
-                  {" "}
-                  <WavesIcon color="primary" /> : {e[0]} m
+                <div className="city">{e[1]}</div>
+                <div className="wave-size">
+                  <img
+                    src={WaveSize}
+                    alt="wave_size"
+                    className="image-wave-size"
+                  />
+                  <p className="image-wave-size">{e[0]} m</p>
                 </div>
               </div>
             );

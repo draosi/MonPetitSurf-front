@@ -22,20 +22,30 @@
   margin: 2.5% 0%;
 }
 
+.div-level-choosing{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0% 5%;
+}
+
 .div-edit-level-button{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin: 2.5% 0%;
+    width: 100%;
 }
 
-.edit-level-button {
+.edit-lvl-button {
   align-self: center;
   /* margin-top: 2em; */
   border-radius: 10px;
   outline: none;
   border: none;
-  color: white;
-  background-color: rgb(2, 88, 176);
+  color: rgb(2, 88, 176);
+  background-color: white;
   /* font-weight: bold; */
   letter-spacing: 0.3em;
   /* transition: .4s ease-in-out opacity,.1s ease-in-out active; */
@@ -43,9 +53,11 @@
   /* box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.5); */
 }
 
-.edit-level-button:active {
+.edit-lvl-button:active {
   transform: translateX(0.1em) translateY(0.1em);
   box-shadow: none;
+  background-color: rgb(2, 88, 176);
+  color: white;
 }
 
 .submit-level-button{
@@ -62,4 +74,12 @@
     padding: 1em;
     /* box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.5); */
     margin: 2.5% 0%;
+}
+
+.lvl-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 0%;
 }

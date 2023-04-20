@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import { useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const ProfilePage = () => {
   const initialValue = {
@@ -18,6 +18,7 @@ const ProfilePage = () => {
   };
 
   const [myUser, setMyUser] = useState(initialValue);
+  const location = useLocation();
 
   const getMyUser = () => {
     const token = localStorage.usertoken;
@@ -30,9 +31,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     getMyUser();
-  }, []);
-
-  console.log(myUser);
+  }, [myUser.level]);
 
   return (
     <div>
