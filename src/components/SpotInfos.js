@@ -19,9 +19,34 @@ const SpotInfos = () => {
   const [windData, setWindData] = value3;
   const [comments, setComments] = value6;
 
-  const waveHeight = value2[0].wave_height.filter((el, i) => i%3 === 0 && i<24)
-  const wavePeriod = value2[0].wave_period.filter((el, i) => i%3 === 0 && i<24)
-  const windSpeed = value3[0].windspeed_10m.filter((el, i) => i%3 === 0 && i<24)
+  const [count, setCount] = useState(0);
+
+  const waveHeight = value2[0].wave_height.filter(
+    (el, i) => i % 3 === 0 && i < 72
+  );
+  const wavePeriod = value2[0].wave_period.filter(
+    (el, i) => i % 3 === 0 && i < 72
+  );
+  const windSpeed = value3[0].windspeed_10m.filter(
+    (el, i) => i % 3 === 0 && i < 72
+  );
+  console.log(waveHeight);
+
+  const dateOption = { weekday: "long", month: "long", day: "numeric" };
+  const DateOfTheDay = new Date().toLocaleDateString("fr-FR", dateOption);
+  console.log(DateOfTheDay);
+
+  const increment = () => {
+    if (count < 4 && count >= 0) {
+      setCount(count + 1);
+    }
+  };
+
+  const decrement = () => {
+    if (count < 4 && count >= 0) {
+      setCount(count - 1);
+    }
+  };
 
   const surfingInfos = [
     {
@@ -76,10 +101,15 @@ const SpotInfos = () => {
 
   return (
     <div>
+      <div className="date-of-the-day">
+        <button className="button-date-decrement">-</button>
+        <p style={{ margin: "0px 10px" }}>{DateOfTheDay}</p>
+        <button className="button-date-increment">+</button>
+      </div>
       <div className="card-surf-infos shadow">
         <div className="graph">
           <div className="height-graph">
-          <h4 style={{textAlign: 'center'}}>Wave size</h4>
+            <h4 style={{ textAlign: "center" }}>Wave size</h4>
             <ResponsiveContainer width={"100%"} height={400}>
               <AreaChart data={surfingInfos}>
                 <Area dataKey="wave_size" stroke="#0258B0" />
@@ -100,7 +130,7 @@ const SpotInfos = () => {
       <div className="card-surf-infos shadow">
         <div className="graph">
           <div className="height-graph">
-          <h4 style={{textAlign: 'center'}}>Wave period</h4>
+            <h4 style={{ textAlign: "center" }}>Wave period</h4>
             <ResponsiveContainer width={"100%"} height={400}>
               <AreaChart data={surfingInfos}>
                 <Area dataKey="wave_period" stroke="#0258B0" />
@@ -121,7 +151,7 @@ const SpotInfos = () => {
       <div className="card-surf-infos shadow">
         <div className="graph">
           <div className="height-graph">
-          <h4 style={{textAlign: 'center'}}>Wind speed</h4>
+            <h4 style={{ textAlign: "center" }}>Wind speed</h4>
             <ResponsiveContainer width={"100%"} height={400}>
               <AreaChart data={surfingInfos}>
                 <Area dataKey="wind_speed" stroke="#0258B0" />
