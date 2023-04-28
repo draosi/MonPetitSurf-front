@@ -9,7 +9,7 @@ const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("user")
+  const [role, setRole] = useState("user");
   const [level, setLevel] = useState("");
   const [data, setData] = useState("");
 
@@ -18,9 +18,16 @@ const Register = () => {
   const createUser = (e) => {
     e.preventDefault();
 
-    const requestBody = {first_name, last_name, username, email, password, level}
+    const requestBody = {
+      first_name,
+      last_name,
+      username,
+      email,
+      password,
+    };
 
-    axios.post("http://localhost:8000/auth/register", requestBody)
+    axios
+      .post("http://localhost:8000/auth/register", requestBody)
       .then((response) => {
         setData(response.data);
         navigate("/login");
@@ -31,7 +38,7 @@ const Register = () => {
   return (
     <div className="div">
       <form className="form" onSubmit={createUser}>
-        <p className="heading">LOGIN</p>
+        <p className="heading">REGISTER</p>
         <input
           className="input"
           type="text"
@@ -66,15 +73,6 @@ const Register = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-        />
-        <input
-          className="input"
-          type="number"
-          value={level}
-          onChange={(e) => setLevel(e.target.value)}
-          min={1}
-          max={4}
-          placeholder="Level"
         />
         <button className="btn">Submit</button>
       </form>
