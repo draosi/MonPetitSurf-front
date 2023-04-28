@@ -39,45 +39,6 @@ const SpotInfos = () => {
   const DateOfTheDay = new Date().toLocaleDateString("fr-FR", dateOption);
   console.log(DateOfTheDay);
 
-  // const increment = () => {
-  //   if (count <= 0) {
-  //     setCount(0)
-  //   } else if (count >= 2) {
-  //     setCount(2)
-  //   } else {
-  //     setCount(count + 1);
-  //   }
-  // };
-
-  // const decrement = () => {
-  //   if (count <= 0) {
-  //     setCount(0)
-  //   } else if (count >= 2) {
-  //     setCount(2)
-  //   } else {
-  //     setCount(count - 1);
-  //   }
-  // };
-
-  // let day = [];
-  // {
-  //   if ((count = 0)) {
-  //     day = surfingInfos;
-  //   } else if ((count = 1)) {
-  //     day = surfingInfos.map((e, i) => {
-  //       (e.wave_size[i] = e.wave_size[i + 8]),
-  //         (e.wave_period[i] = e.wave_period[i + 8]),
-  //         (e.wind_speed[i] = e.wind_speed[i + 8]);
-  //     });
-  //   } else {
-  //     day = surfingInfos.map((e, i) => {
-  //       (e.wave_size = e.wave_size[i + 16]),
-  //         (e.wave_period = e.wave_period[i + 16]),
-  //         (e.wind_speed = e.wind_speed[i + 16]);
-  //     });
-  //   }
-  // }
-
   let surfingInfos = [
     {
       whatTime: "00h",
@@ -225,58 +186,8 @@ const SpotInfos = () => {
     },
   ];
 
-  // const incrementIndex = (surfingInfos) => {
-  //   console.log(count)
-  //   if (count === 0 && surfingInfos?.length > 0) {
-  //     return surfingInfos.map((e, i) => {
-  //       return {
-  //         ...e,
-  //         wave_size: waveHeight[i],
-  //         wave_period: wavePeriod[i],
-  //         wind_speed: windSpeed[i],
-  //       };
-  //     });
-  //   } else if (count === 1 && surfingInfos?.length > 0) {
-  //     return surfingInfos.map((e, i) => {
-  //       return {
-  //         ...e,
-  //         wave_size: waveHeight[i + 8],
-  //         wave_period: wavePeriod[i + 8],
-  //         wind_speed: windSpeed[i + 8],
-  //       };
-  //     });
-  //   } else if (count === 2 && surfingInfos?.length > 0){
-  //     return surfingInfos.map((e, i) => {
-  //       return {
-  //         ...e,
-  //         wave_size: waveHeight[i + 16],
-  //         wave_period: wavePeriod[i + 16],
-  //         wind_speed: windSpeed[i + 16],
-  //       };
-  //     });
-  //   } else {
-  //     return surfingInfos
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   incrementIndex();
-  // }, [count]);
-
-  // console.log(count);
-  // console.log(surfingInfos);
-
   return (
     <div>
-      {/* <div className="date-of-the-day">
-        <button className="button-date-decrement" onClick={decrement}>
-          -
-        </button>
-        <p style={{ margin: "0px 10px" }}>{DateOfTheDay}</p>
-        <button className="button-date-increment" onClick={increment}>
-          +
-        </button>
-      </div> */}
       <div className="card-surf-infos shadow">
         <div className="graph">
           <div className="height-graph">

@@ -80,6 +80,8 @@ export const MpsController = ({ children }) => {
     locationData.latitude && locationData.longitude && fetchMeteoData();
   }, [locationData.latitude, locationData.longitude]);
 
+  console.log(surfData)
+
   const fetchUsers = async () => {
     try {
       const callTheData = await axios.get("http://localhost:8000/api/users");

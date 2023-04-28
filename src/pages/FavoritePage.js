@@ -1,9 +1,11 @@
+import "../css/FavoritesPage.css";
+
 const FavoritePage = () => {
-    return(
-        <div>
+  return (
+    <div>
 
-        </div>
-    )
-}
+    </div>
+  );
+};
 
-export default FavoritePage
+export default FavoritePage;

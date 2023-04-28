@@ -20,11 +20,6 @@
     transition: .4s ease-in-out;
   }
   
-  ::placeholder {
-    color: white;
-    text-align: center;
-  }
-  
   .form .heading {
     padding-left: 0.8em;
     color: white;
@@ -45,6 +40,12 @@
     height: 3em;
     border-radius: 10px;
     background-color: rgb(2, 88, 176);
+    text-align: center;
+  }
+
+  .input::placeholder {
+    color: white;
+    opacity: 0.5;
     text-align: center;
   }
   

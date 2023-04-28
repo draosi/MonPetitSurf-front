@@ -66,8 +66,6 @@ const RecommendedSpot = () => {
   const lvl = mySurf.map((e, id) => [e, spots[id].spot_name]);
   const level = lvl.map((e) => [average(e[0]), e[1]]);
 
-  console.log(level);
-
   // Storing each spot in its appropriate array
   let levelOne = [];
   let levelTwo = [];
@@ -106,77 +104,110 @@ const RecommendedSpot = () => {
     fetchWhereToSurf();
     fetchMyUser();
     setloading(true);
-  }, [location]);
+  }, [location, myUser.level]);
 
   return (
     <div className="recommended-spot">
       <h4>Where to surf today ?</h4>
-      <div className="spots-card shadow">
-        {myUser.level == 1 &&
-          levelOne.map((e) => {
-            return (
-              <div className="table">
-                <div className="city">{e[1]}</div>
-                <div className="wave-size">
-                  <img
-                    src={WaveSize}
-                    alt="wave_size"
-                    className="image-wave-size"
-                  />
-                  <p className="image-wave-size">{e[0]} m</p>
-                </div>
-              </div>
-            );
-          })}
-        {myUser.level == 2 &&
-          levelTwo.map((e) => {
-            return (
-              <div className="table">
-                <div className="city">{e[1]}</div>
-                <div className="wave-size">
-                  <img
-                    src={WaveSize}
-                    alt="wave_size"
-                    className="image-wave-size"
-                  />
-                  <p className="image-wave-size">{e[0]} m</p>
-                </div>
-              </div>
-            );
-          })}
-        {myUser.level == 3 &&
-          levelThree.map((e) => {
-            return (
-              <div className="table">
-                <div className="city">{e[1]}</div>
-                <div className="wave-size">
-                  <img
-                    src={WaveSize}
-                    alt="wave_size"
-                    className="image-wave-size"
-                  />
-                  <p className="image-wave-size">{e[0]} m</p>
-                </div>
-              </div>
-            );
-          })}
-        {myUser.level == 4 &&
-          levelFour.map((e) => {
-            return (
-              <div className="table">
-                <div className="city">{e[1]}</div>
-                <div className="wave-size">
-                  <img
-                    src={WaveSize}
-                    alt="wave_size"
-                    className="image-wave-size"
-                  />
-                  <p className="image-wave-size">{e[0]} m</p>
-                </div>
-              </div>
-            );
-          })}
-      </div>
+      {level ? (
+        <div className="spots-card shadow">
+          {myUser.level == 1 &&
+            (levelOne.length > 0 ? (
+              levelOne.map((e) => {
+                return (
+                  <div className="table">
+                    <div className="city">{e[1]}</div>
+                    <div className="wave-size">
+                      <img
+                        src={WaveSize}
+                        alt="wave_size"
+                        className="image-wave-size"
+                      />
+                      <p className="image-wave-size">{e[0]} m</p>
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <p style={{ textAlign: "center", margin: "10px 0px" }}>
+                No spots matching your level today
+              </p>
+            ))}
+          {myUser.level == 2 &&
+            (levelTwo.length > 0 ? (
+              levelTwo.map((e) => {
+                return (
+                  <div className="table">
+                    <div className="city">{e[1]}</div>
+                    <div className="wave-size">
+                      <img
+                        src={WaveSize}
+                        alt="wave_size"
+                        className="image-wave-size"
+                      />
+                      <p className="image-wave-size">{e[0]} m</p>
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <p style={{ textAlign: "center", margin: "10px 0px" }}>
+                No spots matching your level today
+              </p>
+            ))}
+          {myUser.level == 3 &&
+            (levelThree.length > 0 ? (
+              levelThree.map((e) => {
+                return (
+                  <div className="table">
+                    <div className="city">{e[1]}</div>
+                    <div className="wave-size">
+                      <img
+                        src={WaveSize}
+                        alt="wave_size"
+                        className="image-wave-size"
+                      />
+                      <p className="image-wave-size">{e[0]} m</p>
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <p style={{ textAlign: "center", margin: "10px 0px" }}>
+                No spots matching your level today
+              </p>
+            ))}
+          {myUser.level == 4 &&
+            (levelFour.length > 0 ? (
+              levelFour.map((e) => {
+                return (
+                  <div className="table">
+                    <div className="city">{e[1]}</div>
+                    <div className="wave-size">
+                      <img
+                        src={WaveSize}
+                        alt="wave_size"
+                        className="image-wave-size"
+                      />
+                      <p className="image-wave-size">{e[0]} m</p>
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <p style={{ textAlign: "center", margin: "10px 0px" }}>
+                No spots matching your level today
+              </p>
+            ))}
+        </div>
+      ) : (
+        <div className="spots-card shadow">
+          <div class="loader">
+            <span>Loading</span>
+            <span>Loading</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
