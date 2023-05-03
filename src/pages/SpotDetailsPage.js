@@ -6,7 +6,7 @@ import Meteo from "../components/Meteo";
 import AddFavorite from "../components/AddFavorite";
 import RemoveFavorite from "../components/RemoveFavorite";
 import "../css/SpotDetailsPage.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { MpsContext } from "../context/MpsContext";
 
 const SpotDetailsPage = () => {
@@ -16,21 +16,37 @@ const SpotDetailsPage = () => {
   const [favoriteSpots, setFavoriteSpots] = value10;
 
   const spotToAdd = spots.filter((el) => el.spot_name === query);
-  console.log(spotToAdd);
+  console.log(spotToAdd[0].spot_name);
+
+  useEffect(() => {
+    const myFavoriteSpots = JSON.parse(
+      localStorage.getItem("mon-petit-surf-favorite-spots")
+    );
+    setFavoriteSpots(myFavoriteSpots)
+  }, []);
+
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem(
+      "mon-petit-surf-favorite-spots",
+      JSON.stringify(items)
+    );
+  };
 
   const addFavoriteSpot = (spotToAdd) => {
     const newFavoriteArray = [...favoriteSpots, spotToAdd];
     console.log(newFavoriteArray);
     setFavoriteSpots(newFavoriteArray);
     alert("Spot added to your favorites !");
+    saveToLocalStorage(newFavoriteArray);
   };
 
   const removeFavoriteSpot = (spotToAdd) => {
-    const newFavoriteArray = favoriteSpots.filter(
+    const newFavoriteArray = favoriteSpots[0].filter(
       (el) => el.spot_name !== spotToAdd[0].spot_name
     );
     setFavoriteSpots(newFavoriteArray);
     alert("Spot removed from your favorite !");
+    saveToLocalStorage(newFavoriteArray)
   };
 
   console.log(favoriteSpots);
@@ -48,29 +64,6 @@ const SpotDetailsPage = () => {
           <div className="meteo">
             <Meteo />
           </div>
-          {/* {favoriteSpots.length !== 0 ? (
-            favoriteSpots[0].map((e) => {
-              e.spot_name === spotToAdd[0].spot_name ? (
-                <div
-                  className="icon"
-                  onClick={() => removeFavoriteSpot(spotToAdd)}
-                >
-                  <RemoveFavorite />
-                </div>
-              ) : (
-                <div
-                  className="icon"
-                  onClick={() => addFavoriteSpot(spotToAdd)}
-                >
-                  <AddFavorite />
-                </div>
-              );
-            })
-          ) : (
-            <div className="icon" onClick={() => addFavoriteSpot(spotToAdd)}>
-              <AddFavorite />
-            </div>
-          )} */}
           {favoriteSpots.length !== 0 ? (
             favoriteSpots[0]
               .filter((e) => e.spot_name == spotToAdd[0].spot_name)
