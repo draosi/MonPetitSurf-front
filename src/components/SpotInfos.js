@@ -30,14 +30,13 @@ const SpotInfos = () => {
   const wavePeriod = value2[0].wave_period.filter(
     (el, i) => i % 3 === 0 && i < 72
   );
+
   const windSpeed = value3[0].windspeed_10m.filter(
     (el, i) => i % 3 === 0 && i < 72
   );
-  console.log(waveHeight);
 
   const dateOption = { weekday: "long", month: "long", day: "numeric" };
   const DateOfTheDay = new Date().toLocaleDateString("fr-FR", dateOption);
-  console.log(DateOfTheDay);
 
   let surfingInfos = [
     {
@@ -188,131 +187,170 @@ const SpotInfos = () => {
 
   return (
     <div>
-      <div className="card-surf-infos shadow">
-        <div className="graph">
-          <div className="height-graph">
-            <h4 style={{ textAlign: "center" }}>Wave size</h4>
-            <ResponsiveContainer width={"100%"} height={400}>
-              <AreaChart data={surfingInfos}>
-                <defs>
-                  <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#0258B0" stopOpacity={0.5} />
-                    <stop offset="75%" stopColor="#0258B0" stopOpacity={0.15} />
-                  </linearGradient>
-                </defs>
-                <Area dataKey="wave_size" stroke="#0258B0" fill="url(#color)" />
-                <XAxis
-                  dataKey="whatTime"
-                  axisLine={false}
-                  tickLine={false}
-                  tickFormatter={(str) => {
-                    const dateToNumber = parseInt(str);
-                    if (dateToNumber % 6 === 0) {
-                      return str;
-                    } else {
-                      return "";
-                    }
-                  }}
-                />
-                <YAxis
-                  dataKey="wave_size"
-                  tickFormatter={(number) => `${number} m`}
-                  axisLine={false}
-                  tickLine={false}
-                />
-                <Tooltip />
-                <CartesianGrid opacity={0.8} vertical={false} />
-              </AreaChart>
-            </ResponsiveContainer>
+      {surfingInfos ? (
+        <div>
+          <div className="card-surf-infos shadow">
+            <div className="graph">
+              <div className="height-graph">
+                <h4 style={{ textAlign: "center" }}>Wave size</h4>
+                <ResponsiveContainer width={"100%"} height={400}>
+                  <AreaChart data={surfingInfos}>
+                    <defs>
+                      <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
+                        <stop
+                          offset="0%"
+                          stopColor="#0258B0"
+                          stopOpacity={0.5}
+                        />
+                        <stop
+                          offset="75%"
+                          stopColor="#0258B0"
+                          stopOpacity={0.15}
+                        />
+                      </linearGradient>
+                    </defs>
+                    <Area
+                      dataKey="wave_size"
+                      stroke="#0258B0"
+                      fill="url(#color)"
+                    />
+                    <XAxis
+                      dataKey="whatTime"
+                      axisLine={false}
+                      tickLine={false}
+                      tickFormatter={(str) => {
+                        const dateToNumber = parseInt(str);
+                        if (dateToNumber % 6 === 0) {
+                          return str;
+                        } else {
+                          return "";
+                        }
+                      }}
+                    />
+                    <YAxis
+                      dataKey="wave_size"
+                      tickFormatter={(number) => `${number} m`}
+                      axisLine={false}
+                      tickLine={false}
+                    />
+                    <Tooltip />
+                    <CartesianGrid opacity={0.8} vertical={false} />
+                  </AreaChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+          </div>
+          <div className="card-surf-infos shadow">
+            <div className="graph">
+              <div className="height-graph">
+                <h4 style={{ textAlign: "center" }}>Wave period</h4>
+                <ResponsiveContainer width={"100%"} height={400}>
+                  <AreaChart data={surfingInfos}>
+                    <defs>
+                      <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
+                        <stop
+                          offset="0%"
+                          stopColor="#0258B0"
+                          stopOpacity={0.5}
+                        />
+                        <stop
+                          offset="75%"
+                          stopColor="#0258B0"
+                          stopOpacity={0.15}
+                        />
+                      </linearGradient>
+                    </defs>
+                    <Area
+                      dataKey="wave_period"
+                      stroke="#0258B0"
+                      fill="url(#color)"
+                    />
+                    <XAxis
+                      dataKey="whatTime"
+                      axisLine={false}
+                      tickLine={false}
+                      tickFormatter={(str) => {
+                        const dateToNumber = parseInt(str);
+                        if (dateToNumber % 6 === 0) {
+                          return str;
+                        } else {
+                          return "";
+                        }
+                      }}
+                    />
+                    <YAxis
+                      dataKey="wave_period"
+                      tickFormatter={(number) => `${number} s`}
+                      axisLine={false}
+                      tickLine={false}
+                    />
+                    <Tooltip />
+                    <CartesianGrid opacity={0.8} vertical={false} />
+                  </AreaChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+          </div>
+          <div className="card-surf-infos shadow">
+            <div className="graph">
+              <div className="height-graph">
+                <h4 style={{ textAlign: "center" }}>Wind speed</h4>
+                <ResponsiveContainer width={"100%"} height={400}>
+                  <AreaChart data={surfingInfos}>
+                    <defs>
+                      <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
+                        <stop
+                          offset="0%"
+                          stopColor="#0258B0"
+                          stopOpacity={0.5}
+                        />
+                        <stop
+                          offset="75%"
+                          stopColor="#0258B0"
+                          stopOpacity={0.15}
+                        />
+                      </linearGradient>
+                    </defs>
+                    <Area
+                      dataKey="wind_speed"
+                      stroke="#0258B0"
+                      fill="url(#color)"
+                    />
+                    <XAxis
+                      dataKey="whatTime"
+                      axisLine={false}
+                      tickLine={false}
+                      tickFormatter={(str) => {
+                        const dateToNumber = parseInt(str);
+                        if (dateToNumber % 6 === 0) {
+                          return str;
+                        } else {
+                          return "";
+                        }
+                      }}
+                    />
+                    <YAxis
+                      dataKey="wind_speed"
+                      tickFormatter={(number) => `${number} km/h`}
+                      axisLine={false}
+                      tickLine={false}
+                    />
+                    <Tooltip />
+                    <CartesianGrid opacity={0.8} vertical={false} />
+                  </AreaChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="card-surf-infos shadow">
-        <div className="graph">
-          <div className="height-graph">
-            <h4 style={{ textAlign: "center" }}>Wave period</h4>
-            <ResponsiveContainer width={"100%"} height={400}>
-              <AreaChart data={surfingInfos}>
-                <defs>
-                  <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#0258B0" stopOpacity={0.5} />
-                    <stop offset="75%" stopColor="#0258B0" stopOpacity={0.15} />
-                  </linearGradient>
-                </defs>
-                <Area
-                  dataKey="wave_period"
-                  stroke="#0258B0"
-                  fill="url(#color)"
-                />
-                <XAxis
-                  dataKey="whatTime"
-                  axisLine={false}
-                  tickLine={false}
-                  tickFormatter={(str) => {
-                    const dateToNumber = parseInt(str);
-                    if (dateToNumber % 6 === 0) {
-                      return str;
-                    } else {
-                      return "";
-                    }
-                  }}
-                />
-                <YAxis
-                  dataKey="wave_period"
-                  tickFormatter={(number) => `${number} s`}
-                  axisLine={false}
-                  tickLine={false}
-                />
-                <Tooltip />
-                <CartesianGrid opacity={0.8} vertical={false} />
-              </AreaChart>
-            </ResponsiveContainer>
+      ) : (
+        <div>
+          <div className="loader">
+            <span>Loading</span>
+            <span>Loading</span>
           </div>
         </div>
-      </div>
-      <div className="card-surf-infos shadow">
-        <div className="graph">
-          <div className="height-graph">
-            <h4 style={{ textAlign: "center" }}>Wind speed</h4>
-            <ResponsiveContainer width={"100%"} height={400}>
-              <AreaChart data={surfingInfos}>
-                <defs>
-                  <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#0258B0" stopOpacity={0.5} />
-                    <stop offset="75%" stopColor="#0258B0" stopOpacity={0.15} />
-                  </linearGradient>
-                </defs>
-                <Area
-                  dataKey="wind_speed"
-                  stroke="#0258B0"
-                  fill="url(#color)"
-                />
-                <XAxis
-                  dataKey="whatTime"
-                  axisLine={false}
-                  tickLine={false}
-                  tickFormatter={(str) => {
-                    const dateToNumber = parseInt(str);
-                    if (dateToNumber % 6 === 0) {
-                      return str;
-                    } else {
-                      return "";
-                    }
-                  }}
-                />
-                <YAxis
-                  dataKey="wind_speed"
-                  tickFormatter={(number) => `${number} km/h`}
-                  axisLine={false}
-                  tickLine={false}
-                />
-                <Tooltip />
-                <CartesianGrid opacity={0.8} vertical={false} />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

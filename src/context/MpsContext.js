@@ -6,22 +6,23 @@ export const MpsContext = createContext();
 export const MpsController = ({ children }) => {
   const [surfData, setSurfData] = useState([]);
   const [windData, setWindData] = useState([]);
-  const [meteoData, setMeteoData] = useState([])
+  const [meteoData, setMeteoData] = useState([]);
   const [locationData, setLocationData] = useState([]);
 
   const [users, setUsers] = useState([]);
   const [spots, setSpots] = useState([]);
   const [comments, setComments] = useState([]);
 
-  // const [favoriteSpots, setFavoriteSpots] = useState([])
+  const [favoriteSpots, setFavoriteSpots] = useState([])
+  console.log(favoriteSpots)
 
   const [query, setQuery] = useState("Lacanau-Océan");
   const [input, setInput] = useState("");
 
   const [loading, setLoading] = useState(false);
-  const [surfLoader, setSurfLoader] = useState(false)
-  const [windLoader, setWindLoader] = useState(false)
-  const [meteoLoader, setMeteoLoader] = useState(false)
+  const [surfLoader, setSurfLoader] = useState(false);
+  const [windLoader, setWindLoader] = useState(false);
+  const [meteoLoader, setMeteoLoader] = useState(false);
 
   const fetchLocationData = async () => {
     try {
@@ -44,8 +45,10 @@ export const MpsController = ({ children }) => {
       const callTheData = await axios.get(
         `https://marine-api.open-meteo.com/v1/marine?latitude=${locationData.latitude}&longitude=${locationData.longitude}&hourly=wave_height,wave_direction,wave_period`
       );
-      setSurfData(callTheData.data.hourly);
-      setSurfLoader(true);
+      if (callTheData.data.hourly) {
+        setSurfData(callTheData.data.hourly);
+        setSurfLoader(true);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -56,8 +59,10 @@ export const MpsController = ({ children }) => {
       const callTheData = await axios.get(
         `https://api.open-meteo.com/v1/meteofrance?latitude=${locationData.latitude}&longitude=${locationData.longitude}&hourly=windspeed_10m,winddirection_10m`
       );
-      setWindData(callTheData.data.hourly);
-      setWindLoader(true);
+      if (callTheData.data.hourly) {
+        setWindData(callTheData.data.hourly);
+        setWindLoader(true);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -65,22 +70,23 @@ export const MpsController = ({ children }) => {
 
   const fetchMeteoData = async () => {
     try {
-      const callTheData = await axios.get(`https://api.open-meteo.com/v1/meteofrance?latitude=${locationData.latitude}&longitude=${locationData.longitude}&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,precipitation_hours&timezone=auto`)
-      setMeteoData(callTheData.data.daily)
-      setMeteoLoader(true)
+      const callTheData = await axios.get(
+        `https://api.open-meteo.com/v1/meteofrance?latitude=${locationData.latitude}&longitude=${locationData.longitude}&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,precipitation_hours&timezone=auto`
+      );
+      if (callTheData.data.daily) {
+        setMeteoData(callTheData.data.daily);
+        setMeteoLoader(true);
+      }
+    } catch (err) {
+      console.log(err);
     }
-    catch (err) {
-      console.log(err)
-    }
-  }
+  };
 
   useEffect(() => {
     locationData.latitude && locationData.longitude && fetchSurfData();
     locationData.latitude && locationData.longitude && fetchWindData();
     locationData.latitude && locationData.longitude && fetchMeteoData();
   }, [locationData.latitude, locationData.longitude]);
-
-  console.log(surfData)
 
   const fetchUsers = async () => {
     try {
@@ -130,7 +136,7 @@ export const MpsController = ({ children }) => {
         value7: [query, setQuery],
         value8: [input, setInput],
         value9: [meteoData, setMeteoData],
-        // value10: [favoriteSpots, setFavoriteSpots],
+        value10: [favoriteSpots, setFavoriteSpots],
       }}
     >
       {loading && children}

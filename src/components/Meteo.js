@@ -41,7 +41,7 @@ const Meteo = () => {
         </div>
       ) : (
         <div>
-          <div class="loader">
+          <div className="loader">
             <span>Loading</span>
             <span>Loading</span>
           </div>
